@@ -15,3 +15,9 @@ Projekt do swojego działania używa:
   - JDK23
   - biblioteki CLIPSJNI
   - wbudowanych bibliotek Javy np. Swing
+
+## Uwaga!
+
+W przypadku problemów z uruchomieniem pliku cellphone.jar, proszę spróbować pobrać całe repozytorium i następnie, po rozpakowaniu, otworzyć w tej lokalizacji terminal i wykonać polecenie: 
+
+**java -jar cellphone.jar**
