@@ -11,7 +11,10 @@ Projekt ten został zrealizowany w ramach zajęć przedmiotu Sztuczna Inteligenc
 
 ## Dane techniczne
 
-Projekt do swojego działania używa:
+- Baza wiedzy CLIPS znajduje się w katalogu resources (base.clp)
+- Aplikacja Javy znajduje się w katalogu resources (CellPhone.java)
+- Plik wykonywalny znajduje się w głównym katalogu (cellphone.jar)
+- Projekt do swojego działania używa:
   - JDK23
   - biblioteki CLIPSJNI
   - wbudowanych bibliotek Javy np. Swing
