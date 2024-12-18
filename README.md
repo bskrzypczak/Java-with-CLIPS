@@ -7,7 +7,7 @@
 
 ## Opis projektu
 
-Projekt ten został zrealizowany w ramach zajęć przedmiotu Sztuczna Inteligencja. Jest to regułowy system ekspercki, działający przy użyciu CLIPS, z GUI zaprojektowanym w Javie. Program implementuje graf decyzyjny "ShouldIBuyMyKidACellPhone" znajdujący się w repozytorium.
+Projekt ten został zrealizowany w ramach zajęć przedmiotu Sztuczna Inteligencja. Jest to regułowy system ekspercki, działający przy użyciu CLIPS, z GUI zaprojektowanym w Javie. Program implementuje drzewo decyzyjne "ShouldIBuyMyKidACellPhone" znajdujący się w repozytorium.
 
 ## Dane techniczne
 
