@@ -39,12 +39,12 @@
 
        3: \"She just won't stop. MAKE IT STOP\"
        ")
-       (question-state sq1)
+       (question-state startquestion1)
        (answers 1 2 3)))
 )
 
 (defrule starting-question2         ;Pytanie startowe nr2
-   (logical (path 2))
+   (logical (path answer2))
    =>
        (assert (GUI-state (text "Q: Do you mind if you kid never looks up from her phone again?
 
@@ -53,7 +53,7 @@
 
         2: \"One sec, I'm just finishing a game of Bejeweled\"
         ")
-       (question-state sq2)
+       (question-state startquestion2)
        (answers 1 2)))
 )
 
@@ -69,7 +69,7 @@
 
         3: \"Fine. I am husk of my former self. I feel nothing\"
         ")
-       (question-state sq3)
+       (question-state startquestion3)
        (answers 1 2 3)))
 )
 
@@ -82,7 +82,7 @@
 
         1: \"Dude. This isn't The Wire. How many phones does she need?\"
         ")
-       (question-state sq4)
+       (question-state startquestion4)
        (answers 1)))
 )
 
@@ -91,7 +91,7 @@
 
 
 (defrule question1              ;Pytanie nr1
-   (logical (sq1 3))
+   (logical (startquestion1 3))
    =>
        (assert (GUI-state (text "Q: Are you bankrolling this entire enterprise, player?
 
@@ -102,14 +102,14 @@
 
         3: \"No, my kid's takehome pay is higher than mine, so he's paying for all of it.\"
         ")
-       (question-state q1)
+       (question-state question1)
        (answers 1 2 3)))
 )
 
 (defrule question2              ;Pytanie nr2
    (or
-        (logical (q1 1))
-        (logical (q1 2))
+        (logical (question1 1))
+        (logical (question1 2))
    )
    =>
        (assert (GUI-state (text "Q: Who will spend their hard-earned cash on apps, overages and other charges your kid makes \"by mistake?\"
@@ -119,14 +119,14 @@
 
         2: \"Whatever. I'm a human ATM.\"
         ")
-       (question-state q2)
+       (question-state question2)
        (answers 1 2)))
 )
 
 (defrule question3              ;Pytanie nr3
    (or
-        (logical (sq2 1))
-        (logical (q6 2))
+        (logical (startquestion2 1))
+        (logical (question6 2))
    )
    =>
        (assert (GUI-state (text "Q: HA HA good one. Do your kids always follow your rules?
@@ -136,14 +136,14 @@
 
         2: \"Of course. They are my sweet angels <3.\"
         ")
-       (question-state q3)
+       (question-state question3)
        (answers 1 2)))
 )
 
 (defrule question4              ;Pytanie nr4
    (or
-        (logical (sq2 2))
-        (logical (q6 1))
+        (logical (startquestion2 2))
+        (logical (question6 1))
    )
    =>
        (assert (GUI-state (text "Q: Can you handle him losing his phone like, LITERALLY everywhere?
@@ -153,14 +153,14 @@
 
         2: \"Nope. SHUT IT DOWN.\"
         ")
-       (question-state q4)
+       (question-state question4)
        (answers 1 2)))
 )
 
 (defrule question5              ;Pytanie nr5
    (or
-        (logical (q4 1))
-        (logical (q4 2))
+        (logical (question4 1))
+        (logical (question4 2))
    )
    =>
        (assert (GUI-state (text "Q: Are you seriously shocked that he lost his phone?
@@ -170,12 +170,12 @@
 
         2: \"This is my first day with my kid. We're still getting to know each other.\"
         ")
-       (question-state q5)
+       (question-state question5)
        (answers 1 2)))
 )
 
 (defrule question6              ;Pytanie nr6
-   (logical (q3 1))
+   (logical (question3 1))
    =>
        (assert (GUI-state (text "Q: Do you think she will answer your urgent calls and texts right away/quickly/ever?
 
@@ -184,29 +184,29 @@
 
         2: \"I found this cell phone agreement online. She signed it, so i think we're good.\"
         ")
-       (question-state q6)
+       (question-state question6)
        (answers 1 2)))
 )
 
 (defrule question7              ;Pytanie nr7
-   (logical (sq1 1))
+   (logical (startquestion1 1))
    =>
        (assert (GUI-state (text "Q:  Do you and your kid know about bullying?
 
 
         1: \"Um, yeah. Doi.\"
         ")
-       (question-state q7)
+       (question-state question7)
        (answers 1)))
 )
 
 (defrule question8                  ;Pytanie nr8
    (or
-        (logical (q5 1))
-        (logical (q5 2))
-        (logical (sq3 1))
-        (logical (sq3 2))
-        (logical (sq3 3))
+        (logical (question5 1))
+        (logical (question5 2))
+        (logical (startquestion3 1))
+        (logical (startquestion3 2))
+        (logical (startquestion3 3))
    )
    =>
        (assert (GUI-state (text "Q: Will you pony up and get him another phone?
@@ -218,12 +218,12 @@
 
         3: \"Whatever. I'm a human ATM.\"
         ")
-       (question-state q8)
+       (question-state question8)
        (answers 1 2 3)))
 )
 
 (defrule question9                  ;Pytanie nr9
-   (logical (sq4 1))
+   (logical (startquestion4 1))
    =>
        (assert (GUI-state (text "Q: Mmm-hmm. What will you do next year when she wants a new phone?
 
@@ -232,14 +232,14 @@
 
         2: \"whatever. I'm a human ATM.\
         ")
-       (question-state q9)
+       (question-state question9)
        (answers 1 2)))
 )
 
 (defrule question10                 ;Pytanie nr10
    (or
-        (logical (q3 2))
-        (logical (q2 1))
+        (logical (question3 2))
+        (logical (question2 1))
    )
    =>
        (assert (GUI-state (text "Q: Do you have a HUMAN child?
@@ -247,12 +247,12 @@
 
         1: \"Kinda? I have a robot I built in my basement. I named him Kevin.\"
         ")
-       (question-state q10)
+       (question-state question10)
        (answers 1)))
 )
 
 (defrule question11                 ;Pytanie nr11
-   (logical (q7 1))
+   (logical (question7 1))
    =>
        (assert (GUI-state (text "Q: Are you being bullied right now?
 
@@ -261,14 +261,14 @@
 
         2: \"No more than usual.\"
         ")
-       (question-state q11)
+       (question-state question11)
        (answers 1 2)))
 )
 
 (defrule question12                 ;Pytanie nr12
    (or
-        (logical (q13 1))
-        (logical (q11 2))
+        (logical (question13 1))
+        (logical (question11 2))
    )
    =>
        (assert (GUI-state (text "Q: If you say yes, can you use this as leverage to het something you want?
@@ -276,12 +276,12 @@
 
         1: \"Sweet. I can get a hot tub in the backyard!.\"
         ")
-       (question-state q12)
+       (question-state question12)
        (answers 1)))
 )
 
 (defrule question13                 ;Pytanie nr13
-   (logical (q11 1))
+   (logical (question11 1))
    =>
        (assert (GUI-state (text "Q: Have you also promised her a puppy?
 
@@ -290,14 +290,14 @@
 
         2: \"Yes. Finally, I shall be crowned as the greatest parent ever. Bow to me!\"
         ")
-       (question-state q13)
+       (question-state question13)
        (answers 1 2)))
 )
 
 (defrule question14                     ;Pytanie nr14
    (or
-        (logical (q8 1))
-        (logical (q9 1))
+        (logical (question8 1))
+        (logical (question9 1))
    )
    =>
        (assert (GUI-state (text "Q: Are you going to shell out extra moeny for Apple Care, extra insurance or an unbreakable case?
@@ -307,7 +307,7 @@
 
         2: \"Whatever. I'm a human ATM.\"
         ")
-       (question-state q14)
+       (question-state question14)
        (answers 1 2)))
 )
 
@@ -317,9 +317,9 @@
 
 (defrule answer1                    ;Odpowiedz nr1
    (or
-        (logical (sq1 2))
-        (logical (q8 2))
-        (logical (q14 1))
+        (logical (startquestion1 2))
+        (logical (question8 2))
+        (logical (question14 1))
    )
    =>
        (assert (GUI-state (text "ANSWER:
@@ -335,11 +335,11 @@
 
 (defrule answer2                    ;Odpowiedz nr2
    (or
-        (logical (q14 2))
-        (logical (q12 1))
-        (logical (q9 2))
-        (logical (q8 3))
-        (logical (q2 1))
+        (logical (question14 2))
+        (logical (question12 1))
+        (logical (question9 2))
+        (logical (question8 3))
+        (logical (question2 1))
    )
    =>
        (assert (GUI-state (text "ANSWER:
@@ -357,8 +357,8 @@
 
 (defrule answer3                    ;Odpowiedz nr3
    (or
-        (logical (q13 2))
-        (logical (q1 3))
+        (logical (question13 2))
+        (logical (question1 3))
    )
    =>
        (assert (GUI-state (text "ANSWER:
@@ -373,7 +373,7 @@
 )
 
 (defrule answer4                    ;Odpowiedz nr4
-   (logical (q10 1))
+   (logical (question10 1))
    =>
        (assert (GUI-state (text "ANSWER:
 
@@ -391,54 +391,54 @@
 
 (defrule ask-question
    (GUI-state (id ?id))
-   ?f <- (state-list (history $?s&:(not (member$ ?id ?s))))
+   ?fact <- (state-list (history $?s&:(not (member$ ?id ?s))))
    =>
-   (modify ?f (now ?id) (history ?id ?s))
+   (modify ?fact (now ?id) (history ?id ?s))
    (halt)
 )
 
 (defrule go-back
-   ?f1 <- (prev ?qid)
-   ?f2 <- (state-list (history $?b ?qid ?p $?e))
+   ?fact1 <- (prev ?questionid)
+   ?fact2 <- (state-list (history $?b ?questionid ?p $?e))
    =>
-   (retract ?f1)
-   (modify ?f2 (now ?p))
+   (retract ?fact1)
+   (modify ?fact2 (now ?p))
    (halt)
 )
 
 (defrule wait-for-answer
-   (logical (GUI-state (id ?qid) (question-state ?name)))
-   ?f <- (add-answer ?qid)
+   (logical (GUI-state (id ?questionid) (question-state ?name)))
+   ?fact <- (add-answer ?questionid)
    =>
    (str-assert (str-cat "(" ?name ")"))
-   (retract ?f)
+   (retract ?fact)
 )
 
 
 (defrule got-answer
-   (logical (GUI-state (id ?qid) (question-state ?name)))
-   ?f <- (add-answer ?qid ?answer)
+   (logical (GUI-state (id ?questionid) (question-state ?name)))
+   ?fact <- (add-answer ?questionid ?answer)
    =>
    (str-assert (str-cat "(" ?name " " ?answer ")"))
-   (retract ?f)
+   (retract ?fact)
 )
 
 
 (defrule changes-in-middle
-   (transition ?qid ?answer)
-   ?t1 <- (state-list (now ?qid) (history ?nid $?b ?qid $?e))
-   (GUI-state (id ?qid) (answer ~?answer))
+   (transition ?questionid ?answer)
+   ?t1 <- (state-list (now ?questionid) (history ?nid $?b ?questionid $?e))
+   (GUI-state (id ?questionid) (answer ~?answer))
    ?t2 <- (GUI-state (id ?nid))
    =>
-   (modify ?t1 (history ?b ?qid ?e))
+   (modify ?t1 (history ?b ?questionid ?e))
    (retract ?t2)
 )
 
 
 (defrule changes-in-end
-   ?t1 <- (transition ?qid ?answer)
-   (state-list (history ?qid $?))
-   ?t2 <- (GUI-state (id ?qid)
+   ?t1 <- (transition ?questionid ?answer)
+   (state-list (history ?questionid $?))
+   ?t2 <- (GUI-state (id ?questionid)
                     (answer ?expected)
                     (question-state ?name))
    =>
@@ -446,6 +446,6 @@
    (if (neq ?answer ?expected)
       then
       (modify ?t2 (answer ?answer)))
-   (assert (add-answer ?qid ?answer))
+   (assert (add-answer ?questionid ?answer))
 )
 
